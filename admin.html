@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>PionFlower — Админ-панель</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="admin-container" id="adminContainer" style="display: none;">
+        <header class="admin-header">
+            <div class="admin-header-top">
+                <div class="admin-logo">
+                    <div class="logo-icon">
+                        <img src="./assets/media/img/logo.png" alt="PionFlower" onerror="this.style.display='none'">
+                    </div>
+                    <div class="logo-text">PionFlower<span>админ-панель</span></div>
+                </div>
+                <div class="admin-actions">
+                    <div class="theme-toggle" id="themeToggle">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <button class="admin-close-btn" id="closeAdminBtn">✕</button>
+                </div>
+            </div>
+            <div class="admin-stats">
+                <div class="stat-card">Заказы<span id="statOrders">0</span></div>
+                <div class="stat-card">Товары<span id="statProducts">0</span></div>
+                <div class="stat-card">Сообщ.<span id="statMessages">0</span></div>
+            </div>
+        </header>
+
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="orders">Заказы</button>
+            <button class="admin-tab" data-tab="products">Товары</button>
+            <button class="admin-tab" data-tab="messages">Сообщения</button>
+        </div>
+
+        <div class="admin-tab-content active" id="ordersTab"><div id="ordersList" class="admin-list"></div></div>
+        <div class="admin-tab-content" id="productsTab">
+            <button class="admin-add-btn" id="addProductBtn">+ Добавить товар</button>
+            <div id="productsList" class="admin-list"></div>
+        </div>
+        <div class="admin-tab-content" id="messagesTab"><div id="messagesList" class="admin-list"></div></div>
+    </div>
+
+    <div class="admin-modal" id="productModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h3 id="modalTitle">Добавить товар</h3>
+                <button class="admin-modal-close">&times;</button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="productForm">
+                    <input type="hidden" id="productId">
+                    <div class="form-group"><input type="text" id="productName" placeholder="Название букета" required></div>
+                    <div class="form-group"><input type="number" id="productPrice" placeholder="Цена (₽)" required></div>
+                    <div class="form-group"><textarea id="productDescription" rows="3" placeholder="Описание"></textarea></div>
+                    <div class="form-group"><input type="text" id="productComposition" placeholder="Состав (через запятую)"></div>
+                    <div class="form-group">
+                        <select id="productCategory">
+                            <option value="author">Авторские</option>
+                            <option value="wedding">Свадебные</option>
+                            <option value="corporate">Корпоративные</option>
+                            <option value="mono">Монобукеты</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><input type="text" id="productBadge" placeholder="Бейдж (Хит/Новинка)"></div>
+                    <div class="form-group"><input type="text" id="productImage" placeholder="Фото (img/название.jpg)"></div>
+                    <button type="submit" class="admin-submit-btn">Сохранить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

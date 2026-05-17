@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Личный кабинет — PionFlower</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <a href="index.html"><img src="./assets/media/img/logo.png" alt="PionFlower" class="logo-img" /></a>
+                </div>
+                <div class="logo-text">PionFlower<span>студия цветов</span></div>
+            </div>
+
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="delivery.html" class="nav-link">Доставка</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
+            </nav>
+
+            <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="cart-icon-header" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count-badge" id="cartCount">0</span>
+                </div>
+                <div class="profile-section" id="profileSection"></div>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link">Главная</a>
+            <a href="catalog.html" class="mobile-link">Каталог</a>
+            <a href="delivery.html" class="mobile-link">Доставка</a>
+            <a href="contacts.html" class="mobile-link">Контакты</a>
+            <a href="profile.html" class="mobile-link active">Личный кабинет</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="profile-not-logged" id="profileNotLogged" style="display: none;">
+            <div class="not-logged-card">
+                <h2>Войдите в аккаунт</h2>
+                <p>Чтобы просматривать личный кабинет, пожалуйста, войдите или зарегистрируйтесь</p>
+                <button class="btn-primary" id="goToLoginBtn">Войти в аккаунт</button>
+            </div>
+        </div>
+
+        <div class="profile-logged" id="profileLogged" style="display: none;">
+            <section class="profile-hero">
+                <div class="profile-avatar-container">
+                    <div class="profile-avatar-large" id="profileAvatar">
+                        <img src="./assets/media/icon/userrr.svg" alt="Фото профиля" class="profile-photo"
+                            id="profilePhoto"
+                            onerror="this.style.display='none'; this.parentElement.style.background='#ffdbd3';">
+                    </div>
+                    <button class="change-photo-btn" id="changePhotoBtn"><i class="fas fa-camera"></i></button>
+                </div>
+                <h1 id="profileName">Имя пользователя</h1>
+                <p class="profile-phone" id="profilePhone">+7 (XXX) XXX-XX-XX</p>
+                <p class="profile-email" id="profileEmail">email@example.com</p>
+                <button class="logout-btn-header" id="logoutBtnHeader"><i class="fas fa-sign-out-alt"></i>
+                    Выйти</button>
+            </section>
+
+            <div class="container">
+                <div class="profile-tabs">
+                    <button class="tab-btn active" data-tab="cart">Корзина</button>
+                    <button class="tab-btn" data-tab="delivery">Калькулятор доставки</button>
+                    <button class="tab-btn" data-tab="orders">Мои заказы</button>
+                    <button class="tab-btn" data-tab="settings">Настройки</button>
+                </div>
+
+                <div class="tab-content active" id="cartTab">
+                    <div class="cart-container">
+                        <div class="cart-items" id="cartItems"></div>
+                        <div class="cart-summary">
+                            <div class="summary-row"><span>Товаров:</span><span id="cartTotalItems">0</span></div>
+                            <div class="summary-row"><span>Сумма заказа:</span><span id="cartTotalPrice">0 ₽</span>
+                            </div>
+                            <div class="delivery-calculator-inline">
+                                <h3>Доставка</h3>
+                                <div class="delivery-zone-select">
+                                    <label for="cartDeliveryZone">Выберите район:</label>
+                                    <select id="cartDeliveryZone" class="calc-select-small">
+                                        <option value="center">Центр — 200 ₽</option>
+                                        <option value="west">Западный — 300 ₽</option>
+                                        <option value="east">Восточный — 300 ₽</option>
+                                        <option value="north">Северный — 300 ₽</option>
+                                        <option value="south">Южный — 300 ₽</option>
+                                        <option value="urban">Городок нефтяников — 350 ₽</option>
+                                        <option value="dzhalil">пгт Джалиль — 500 ₽</option>
+                                    </select>
+                                </div>
+                                <div class="address-input-wrapper">
+                                    <label for="profileDeliveryAddress"><i class="fas fa-location-dot"></i> Точный адрес
+                                        доставки</label>
+                                    <input type="text" id="profileDeliveryAddress"
+                                        placeholder="Например: ул. Ленина, д. 10, кв. 5" autocomplete="off">
+                                </div>
+                                <div class="delivery-price-info" id="deliveryPriceInfo">
+                                    <div class="delivery-cost"><span>Стоимость доставки:</span><span
+                                            id="deliveryCostDisplay">0 ₽</span></div>
+                                    <div class="free-delivery-note" id="freeDeliveryNote" style="display: none;"><i
+                                            class="fas fa-check-circle"></i> Бесплатная доставка! (при заказе от 3000 ₽)
+                                    </div>
+                                    <div class="need-more-note" id="needMoreNote" style="display: none;"><i
+                                            class="fas fa-truck"></i> До бесплатной доставки не хватает <span
+                                            id="needMoreAmount">0</span> ₽</div>
+                                </div>
+                            </div>
+
+                            <div class="summary-row total-row"><span>Итого к оплате:</span><span
+                                    id="cartTotalWithDelivery">0 ₽</span></div>
+                            <button class="checkout-btn" id="checkoutBtn">Оформить заказ</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="deliveryTab">
+                    <div class="calc-block">
+                        <h2>Калькулятор доставки</h2>
+                        <form id="deliveryForm" class="calc-form">
+                            <select id="deliveryZone" class="calc-select" required>
+                                <option value="">Выберите район</option>
+                                <option value="center">Центр (Ленина, Советская, Гагарина)</option>
+                                <option value="west">Западный (микрорайон Западный)</option>
+                                <option value="east">Восточный (микрорайон Восточный)</option>
+                                <option value="north">Северный (микрорайон Северный)</option>
+                                <option value="south">Южный (микрорайон Южный)</option>
+                                <option value="urban">Городок нефтяников</option>
+                                <option value="dzhalil">пгт Джалиль</option>
+                            </select>
+                            <input type="number" id="orderAmount" placeholder="Сумма заказа (₽)" class="calc-input">
+                            <button type="submit" class="calc-btn">Рассчитать</button>
+                        </form>
+                        <div id="calcResult" class="calc-result" style="display: none;"></div>
+                    </div>
+                    <div class="price-block">
+                        <h2>Тарифы доставки</h2>
+                        <div class="price-list">
+                            <div class="price-row"><span>Центр</span><span>200 ₽</span></div>
+                            <div class="price-row"><span>Западный, Восточный, Северный, Южный</span><span>300 ₽</span>
+                            </div>
+                            <div class="price-row"><span>Городок нефтяников</span><span>350 ₽</span></div>
+                            <div class="price-row"><span>пгт Джалиль</span><span>500 ₽</span></div>
+                            <div class="price-row highlight"><span>Бесплатная доставка</span><span>от 3000 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="ordersTab">
+                    <div class="orders-list" id="ordersList"></div>
+                </div>
+
+                <div class="tab-content" id="settingsTab">
+                    <div class="settings-container">
+                        <div class="settings-section">
+                            <h3>Личные данные</h3>
+                            <form id="profileSettingsForm" class="settings-form">
+                                <div class="form-group">
+                                    <label>Имя</label>
+                                    <input type="text" id="settingsName" placeholder="Ваше имя">
+                                </div>
+                                <div class="form-group">
+                                    <label>Телефон</label>
+                                    <input type="tel" id="settingsPhone" placeholder="+7 (XXX) XXX-XX-XX">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" id="settingsEmail" placeholder="email@example.com">
+                                </div>
+                                <button type="submit" class="btn-primary">Сохранить изменения</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon"><img src="./assets/media/img/logo.png" alt="PionFlower" class="logo-img" /></div>
+                <div class="logo-text">PionFlower</div>
+            </div>
+            <div class="footer-copyright">© 2026, цветочная студия «PionFlower»</div>
+            <div class="footer-contacts">
+                <a href="tel:+78553123456">+7 (8553) 12-34-56</a>
+                <a href="mailto:PionFlower@gmail.com">PionFlower@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal cart-modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Корзина</h3>
+                <button class="modal-close" id="closeCartBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items-list" id="cartItemsList"></div>
+                <div class="cart-summary-modal">
+                    <div class="summary-row"><span>Товаров (<span id="cartModalTotalItems">0</span>):</span><span
+                            id="cartModalSubtotal">0 ₽</span></div>
+                    <div class="delivery-selector">
+                        <label>Район доставки:</label>
+                        <select id="cartDeliveryZoneSelect" class="delivery-select">
+                            <option value="center">Центр — 200 ₽</option>
+                            <option value="west">Западный — 300 ₽</option>
+                            <option value="east">Восточный — 300 ₽</option>
+                            <option value="north">Северный — 300 ₽</option>
+                            <option value="south">Южный — 300 ₽</option>
+                            <option value="urban">Городок нефтяников — 350 ₽</option>
+                            <option value="dzhalil">пгт Джалиль — 500 ₽</option>
+                        </select>
+                    </div>
+                    <div class="free-delivery-note" id="cartModalFreeNote" style="display: none;"></div>
+                    <div class="summary-row delivery-row"><span>Доставка:</span><span id="cartModalDelivery">0 ₽</span>
+                    </div>
+                    <div class="summary-row total-row"><span>Итого:</span><span id="cartModalTotal">0 ₽</span></div>
+                    <button class="checkout-btn" id="modalCheckoutBtn">Оформить заказ</button>
+                    <button class="continue-shopping-btn" id="continueShoppingBtn">Продолжить покупки</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-notification" id="cartNotification">
+        <div class="cart-notification-content"><i class="fas fa-check-circle"></i><span>Товар добавлен в корзину</span>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>Контакты — PionFlower</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <a href="index.html"><img src="./assets/media/img/logo.png" alt="PionFlower" class="logo-img"></a>
+                </div>
+                <div class="logo-text">PionFlower<span>студия цветов</span></div>
+            </div>
+
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="delivery.html" class="nav-link">Доставка</a>
+                <a href="contacts.html" class="nav-link active">Контакты</a>
+            </nav>
+
+            <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="cart-icon-header" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count-badge" id="cartCount">0</span>
+                </div>
+                <div class="profile-section" id="profileSection"></div>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link">Главная</a>
+            <a href="catalog.html" class="mobile-link">Каталог</a>
+            <a href="delivery.html" class="mobile-link">Доставка</a>
+            <a href="contacts.html" class="mobile-link active">Контакты</a>
+            <a href="profile.html" class="mobile-link">Личный кабинет</a>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-header">
+            <h1>Контакты</h1>
+            <p>Свяжитесь с нами любым удобным способом</p>
+        </div>
+        <div class="container">
+            <div class="quick-contacts">
+                <a href="tel:+78553123456" class="quick-contact-card">
+                    <div class="quick-icon"><img src="./assets/media/icon/phone.svg" alt="Позвонить"></div>
+                    <span class="quick-label">Позвонить</span>
+                </a>
+                <a href="mailto:PionFlower@gmail.com" class="quick-contact-card">
+                    <div class="quick-icon"><img src="./assets/media/icon/mail.svg" alt="Email"></div>
+                    <span class="quick-label">Email</span>
+                </a>
+                <a href="#" class="quick-contact-card" id="whatsappBtn">
+                    <div class="quick-icon"><img src="./assets/media/icon/max.svg" alt="max"></div>
+                    <span class="quick-label">MAX</span>
+                </a>
+                <a href="#" class="quick-contact-card" id="telegramBtn">
+                    <div class="quick-icon"><img src="./assets/media/icon/vk.svg" alt="vk"></div>
+                    <span class="quick-label">VK</span>
+                </a>
+            </div>
+
+            <div class="address-section">
+                <div class="section-title">
+                    <h2>Как нас найти</h2>
+                </div>
+                <div class="address-card">
+                    <p class="address-text">г. Альметьевск, ул. Ленина, д. 43</p>
+                    <p class="address-schedule">Ежедневно: 10:00 – 21:00</p>
+                    <button class="route-btn" id="routeBtn">Построить маршрут</button>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://yandex.ru/map-widget/v1/?ll=52.296782%2C54.899183&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NTg3MTQ0ORJ_0KDQvtGB0YHQuNGPLCDQoNC10YHQv9GD0LHQu9C40LrQsCDQotCw0YLQsNGA0YHRgtCw0L0gKNCi0LDRgtCw0YDRgdGC0LDQvSksINCQ0LvRjNC80LXRgtGM0LXQstGB0LosINGD0LvQuNGG0LAg0JvQtdC90LjQvdCwLCA0MyIKDektUUIVp5lbQg%2C%2C&z=16.61"
+                        width="100%" height="250" frameborder="0" allowfullscreen="true"
+                        style="border-radius: 16px;"></iframe>
+                </div>
+            </div>
+
+            <div class="schedule-section">
+                <div class="section-title">
+                    <h2>Режим работы</h2>
+                </div>
+                <div class="schedule-list">
+                    <div class="schedule-item"><span class="schedule-day">Пн–Вс</span><span class="schedule-time">10:00
+                            – 21:00</span></div>
+                    <div class="schedule-item highlight"><span class="schedule-day">Онлайн-заказы</span><span
+                            class="schedule-time">24/7</span></div>
+                </div>
+            </div>
+
+            <div class="feedback-section">
+                <div class="section-title">
+                    <h2>Написать нам</h2>
+                </div>
+                <form id="feedbackForm" class="feedback-form">
+                    <input type="text" id="feedbackName" placeholder="Ваше имя" required>
+                    <input type="tel" id="feedbackPhone" placeholder="Телефон" required>
+                    <textarea id="feedbackMessage" rows="4" placeholder="Ваше сообщение" required></textarea>
+                    <button type="submit" class="submit-btn">Отправить</button>
+                </form>
+            </div>
+
+            <div class="social-section">
+                <div class="section-title">
+                    <h2>Мы в соцсетях</h2>
+                </div>
+                <div class="social-grid">
+                    <a href="https://m.vk.com/PionFlowerStudio" target="_blank" class="social-card">
+                        <div class="social-icon"><img src="./assets/media/icon/vk.svg" alt="ВКонтакте"></div>
+                        <span class="social-name">ВКонтакте</span>
+                        <span class="social-arrow">→</span>
+                    </a>
+                    <a href="#" class="social-card" id="instagramBtn">
+                        <div class="social-icon"><img src="./assets/media/icon/odn.svg" alt="odnoklasniki"></div>
+                        <span class="social-name">Одноклассники</span>
+                        <span class="social-arrow">→</span>
+                    </a>
+                    <a href="#" class="social-card" id="tgChannelBtn">
+                        <div class="social-icon"><img src="./assets/media/icon/max.svg" alt="max"></div>
+                        <span class="social-name">MAX</span>
+                        <span class="social-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="faq-block">
+                <h2>Частые вопросы</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question"><span>Как сделать заказ?</span><button class="faq-toggle">+</button></div>
+                    <div class="faq-answer">Заказ можно оформить онлайн в каталоге, позвонить по телефону +7 (8553)
+                        12-34-56 или прийти в студию.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>Сколько времени доставка?</span><button
+                            class="faq-toggle">+</button></div>
+                    <div class="faq-answer">Доставка по Альметьевску занимает 1-2 часа. При заказе от 3000 ₽ —
+                        бесплатно.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>Можно ли забрать самому?</span><button class="faq-toggle">+</button>
+                    </div>
+                    <div class="faq-answer">Да, самовывоз доступен ежедневно с 10:00 до 21:00 по адресу: ул. Ленина, 43.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><span>Какие способы оплаты?</span><button class="faq-toggle">+</button>
+                    </div>
+                    <div class="faq-answer">Наличные при получении, банковские карты онлайн, оплата на сайте через
+                        защищенный шлюз.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon"><img src="./assets/media/img/logo.png" alt="PionFlower" class="logo-img" /></div>
+                <div class="logo-text">PionFlower</div>
+            </div>
+            <div class="footer-copyright">© 2026, цветочная студия «PionFlower»</div>
+            <div class="footer-contacts">
+                <a href="tel:+78553123456">+7 (8553) 12-34-56</a>
+                <a href="mailto:PionFlower@gmail.com">PionFlower@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+<!-- МОДАЛЬНЫЕ ОКНА -->
+
+<div class="modal auth-modal" id="authModal">
+    <div class="modal-content auth-modal-content">
+        <div class="modal-header">
+            <h3>Вход в аккаунт</h3>
+            <button class="modal-close auth-modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-auth-tab="login">Вход</button>
+                <button class="auth-tab" data-auth-tab="register">Регистрация</button>
+            </div>
+
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <input type="tel" id="loginPhone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Пароль" required>
+                </div>
+                <button type="submit" class="btn-primary w-100 auth-submit-btn">Войти</button>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <input type="text" id="regName" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="regPhone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="regEmail" placeholder="Email (необязательно)">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPassword" placeholder="Пароль" required>
+                </div>
+                <button type="submit" class="btn-primary w-100 auth-submit-btn">Зарегистрироваться</button>
+            </form>
+            <p class="modal-hint auth-hint">После входа вам станут доступны корзина, избранное и история заказов</p>
+        </div>
+    </div>
+</div>
+    <div class="modal cart-modal" id="cartModal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Моя корзина</h3>
+                <button class="modal-close" id="closeCartBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items-list" id="cartItemsList"></div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Товаров:</span>
+                        <span id="cartTotalItems">0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Сумма заказа:</span>
+                        <span id="cartSubtotal">0 ₽</span>
+                    </div>
+                    <div class="summary-row delivery-row">
+                        <span>Доставка:</span>
+                        <span id="cartDelivery">0 ₽</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Итого:</span>
+                        <span id="cartTotal">0 ₽</span>
+                    </div>
+                    <div class="delivery-selector">
+                        <label for="cartDeliveryZoneSelect">Район доставки:</label>
+                        <select id="cartDeliveryZoneSelect" class="delivery-select">
+                            <option value="center">Центр — 200 ₽</option>
+                            <option value="west">Западный микрорайон — 300 ₽</option>
+                            <option value="east">Восточный микрорайон — 300 ₽</option>
+                            <option value="north">Северный микрорайон — 300 ₽</option>
+                            <option value="south">Южный микрорайон — 300 ₽</option>
+                            <option value="urban">Городок нефтяников — 350 ₽</option>
+                            <option value="dzhalil">пгт Джалиль — 500 ₽</option>
+                        </select>
+                    </div>
+                    <div class="free-delivery-note" id="freeDeliveryNote">
+                        <i class="fas fa-truck"></i> Добавьте товаров на <span id="needMore">0</span> ₽ для бесплатной доставки
+                    </div>
+                    <button class="checkout-btn" id="checkoutBtn">Оформить заказ</button>
+                    <button class="continue-shopping-btn" id="continueShoppingBtn">Продолжить покупки</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="quickOrderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Быстрый заказ</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="quickOrderForm">
+                    <div class="form-group">
+                        <input type="text" id="quickName" placeholder="Ваше имя" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="quickPhone" placeholder="Телефон" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="quickAddress" placeholder="Адрес доставки" />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Заказать</button>
+                </form>
+                <p class="modal-hint">Мы свяжемся с вами для подтверждения заказа</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-notification" id="cartNotification">
+        <div class="cart-notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span>Товар добавлен в корзину</span>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

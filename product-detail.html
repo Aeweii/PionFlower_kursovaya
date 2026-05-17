@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>PionFlower — Детали букета</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon"><a href="index.html"><img src="./assets/media/img/logo.png" alt="PionFlower"
+                            class="logo-img"></a></div>
+                <div class="logo-text">PionFlower<span>студия цветов</span></div>
+            </div>
+            <nav class="nav" id="navMenu"><a href="index.html" class="nav-link">Главная</a><a href="catalog.html"
+                    class="nav-link">Каталог</a><a href="delivery.html" class="nav-link">Доставка</a><a
+                    href="contacts.html" class="nav-link">Контакты</a></nav>
+            <button class="burger-menu" id="burgerMenu"
+                aria-label="Меню"><span></span><span></span><span></span></button>
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle"><i class="fas fa-sun"></i><i class="fas fa-moon"></i></div>
+                <div class="cart-icon-header" id="cartIcon"><i class="fas fa-shopping-cart"></i><span
+                        class="cart-count-badge" id="cartCount">0</span></div>
+                <div class="profile-section" id="profileSection"></div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu"><a href="index.html" class="mobile-link">Главная</a><a
+                href="catalog.html" class="mobile-link">Каталог</a><a href="delivery.html"
+                class="mobile-link">Доставка</a><a href="contacts.html" class="mobile-link">Контакты</a><a
+                href="profile.html" class="mobile-link">Личный кабинет</a></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <button class="back-btn" onclick="window.history.back()"><i class="fas fa-arrow-left"></i> Назад</button>
+            <div class="product-detail" id="productDetail"></div>
+            <div class="reviews-section" id="reviewsSection">
+                <div class="section-header">
+                    <h2>Отзывы наших клиентов</h2>
+                    <p>Что говорят о наших букетах</p>
+                </div>
+                <div class="reviews-list" id="reviewsList"></div>
+                <div class="review-form-container">
+                    <h3>Оставить отзыв</h3>
+                    <form id="reviewForm" class="review-form">
+                        <div class="form-row">
+                            <div class="form-group"><input type="text" id="reviewName" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="rating-group"><span>Ваша оценка:</span>
+                                <div class="stars-input" id="ratingStarsInput"><i class="far fa-star"
+                                        data-rating="1"></i><i class="far fa-star" data-rating="2"></i><i
+                                        class="far fa-star" data-rating="3"></i><i class="far fa-star"
+                                        data-rating="4"></i><i class="far fa-star" data-rating="5"></i></div><input
+                                    type="hidden" id="reviewRating" value="5">
+                            </div>
+                        </div>
+                        <div class="form-group"><textarea id="reviewText" rows="3"
+                                placeholder="Поделитесь впечатлениями о букете..." required></textarea></div>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Отправить
+                            отзыв</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon"><img src="./assets/media/img/logo.png" alt="PionFlower" class="logo-img" /></div>
+                <div class="logo-text">PionFlower</div>
+            </div>
+            <div class="footer-copyright">© 2026, цветочная студия «PionFlower»</div>
+            <div class="footer-contacts"><a href="tel:+78553123456">+7 (8553) 12-34-56</a><a
+                    href="mailto:PionFlower@gmail.com">PionFlower@gmail.com</a></div>
+        </div>
+    </footer>
+
+    <div style="display: none;" id="hiddenProductsForDetail">
+        <div class="product-card" data-id="1" data-name="Нежность пионов" data-price="2900" data-category="author"
+            data-image="./assets/media/img/pion.jpeg" data-badge="Хит продаж"
+            data-description="Изысканный букет из нежных пионов" data-composition='["Розовые пионы","Гипсофила"]'>
+            <div class="card-image"><img src="./assets/media/img/pion.jpeg" alt="Нежность пионов"></div>
+            <div class="card-title">Нежность пионов</div>
+            <div class="card-price">2 900 ₽</div>
+        </div>
+        <div class="product-card" data-id="2" data-name="Мятный эвкалипт" data-price="2400" data-category="author"
+            data-image="./assets/media/img/mint.jpg" data-badge="" data-description="Стильная композиция с эвкалиптом"
+            data-composition='["Эвкалипт","Белые розы"]'>
+            <div class="card-image"><img src="./assets/media/img/mint.jpg" alt="Мятный эвкалипт"></div>
+            <div class="card-title">Мятный эвкалипт</div>
+            <div class="card-price">2 400 ₽</div>
+        </div>
+        <div class="product-card" data-id="3" data-name="Розовое облако" data-price="3200" data-category="wedding"
+            data-image="./assets/media/img/pink.jpg" data-badge="Свадебный" data-description="Нежный романтичный букет"
+            data-composition='["Розовые розы","Гипсофила"]'>
+            <div class="card-image"><img src="./assets/media/img/pink.jpg" alt="Розовое облако"></div>
+            <div class="card-title">Розовое облако</div>
+            <div class="card-price">3 200 ₽</div>
+        </div>
+        <div class="product-card" data-id="4" data-name="Корпоративный стиль" data-price="3500"
+            data-category="corporate" data-image="./assets/media/img/business.jpg" data-badge="Популярный"
+            data-description="Элегантный букет для офиса" data-composition='["Розы","Гортензии"]'>
+            <div class="card-image"><img src="./assets/media/img/business.jpg" alt="Корпоративный стиль"></div>
+            <div class="card-title">Корпоративный стиль</div>
+            <div class="card-price">3 500 ₽</div>
+        </div>
+        <div class="product-card" data-id="5" data-name="Свадебная нежность" data-price="3800" data-category="wedding"
+            data-image="./assets/media/img/wedding.jpg" data-badge="Свадебный" data-description="Букет невесты"
+            data-composition='["Пионовидные розы","Эустомы"]'>
+            <div class="card-image"><img src="./assets/media/img/wedding.jpg" alt="Свадебная нежность"></div>
+            <div class="card-title">Свадебная нежность</div>
+            <div class="card-price">3 800 ₽</div>
+        </div>
+        <div class="product-card" data-id="6" data-name="Алые розы" data-price="4100" data-category="mono"
+            data-image="./assets/media/img/red.jpg" data-badge="Премиум" data-description="15 роз премиум-класса"
+            data-composition='["Алые розы"]'>
+            <div class="card-image"><img src="./assets/media/img/red.jpg" alt="Алые розы"></div>
+            <div class="card-title">Алые розы</div>
+            <div class="card-price">4 100 ₽</div>
+        </div>
+        <div class="product-card" data-id="7" data-name="Полевые цветы" data-price="1900" data-category="author"
+            data-image="./assets/media/img/field.jpg" data-badge="" data-description="Букет из полевых цветов"
+            data-composition='["Ромашки","Васильки"]'>
+            <div class="card-image"><img src="./assets/media/img/field.jpg" alt="Полевые цветы"></div>
+            <div class="card-title">Полевые цветы</div>
+            <div class="card-price">1 900 ₽</div>
+        </div>
+        <div class="product-card" data-id="8" data-name="Тюльпаны" data-price="2100" data-category="mono"
+            data-image="./assets/media/img/tulips.jpg" data-badge="Сезон" data-description="25 тюльпанов"
+            data-composition='["Тюльпаны"]'>
+            <div class="card-image"><img src="./assets/media/img/tulips.jpg" alt="Тюльпаны"></div>
+            <div class="card-title">Тюльпаны</div>
+            <div class="card-price">2 100 ₽</div>
+        </div>
+        <div class="product-card" data-id="9" data-name="Бизнес-букет" data-price="4200" data-category="corporate"
+            data-image="./assets/media/img/bisiness2.jpg" data-badge=""
+            data-description="Строгая и статусная композиция" data-composition='["Гвоздики"]'>
+            <div class="card-image"><img src="./assets/media/img/bisiness2.jpg" alt="Бизнес-букет"></div>
+            <div class="card-title">Бизнес-букет</div>
+            <div class="card-price">4 200 ₽</div>
+        </div>
+        <div class="product-card" data-id="10" data-name="Пионовидные розы" data-price="3300" data-category="author"
+            data-image="./assets/media/img/pionrose.jpg" data-badge="Новинка" data-description="Нежные пионовидные розы"
+            data-composition='["Пионовидные розы"]'>
+            <div class="card-image"><img src="./assets/media/img/pionrose.jpg" alt="Пионовидные розы"></div>
+            <div class="card-title">Пионовидные розы</div>
+            <div class="card-price">3 300 ₽</div>
+        </div>
+        <div class="product-card" data-id="11" data-name="Хризантемы" data-price="2500" data-category="mono"
+            data-image="./assets/media/img/chrysanthemums.jpg" data-badge="" data-description="Кустовые хризантемы"
+            data-composition='["Хризантемы"]'>
+            <div class="card-image"><img src="./assets/media/img/chrysanthemums.jpg" alt="Хризантемы"></div>
+            <div class="card-title">Хризантемы</div>
+            <div class="card-price">2 500 ₽</div>
+        </div>
+        <div class="product-card" data-id="12" data-name="Лавандовый сон" data-price="2700" data-category="author"
+            data-image="./assets/media/img/violet.jpg" data-badge="" data-description="Ароматный букет с лавандой"
+            data-composition='["Лаванда","Сухоцветы"]'>
+            <div class="card-image"><img src="./assets/media/img/violet.jpg" alt="Лавандовый сон"></div>
+            <div class="card-title">Лавандовый сон</div>
+            <div class="card-price">2 700 ₽</div>
+        </div>
+    </div>
+
+<!-- МОДАЛЬНЫЕ ОКНА -->
+
+<div class="modal auth-modal" id="authModal">
+    <div class="modal-content auth-modal-content">
+        <div class="modal-header">
+            <h3>Вход в аккаунт</h3>
+            <button class="modal-close auth-modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-auth-tab="login">Вход</button>
+                <button class="auth-tab" data-auth-tab="register">Регистрация</button>
+            </div>
+
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <input type="tel" id="loginPhone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Пароль" required>
+                </div>
+                <button type="submit" class="btn-primary w-100 auth-submit-btn">Войти</button>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <input type="text" id="regName" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="regPhone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="regEmail" placeholder="Email (необязательно)">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPassword" placeholder="Пароль" required>
+                </div>
+                <button type="submit" class="btn-primary w-100 auth-submit-btn">Зарегистрироваться</button>
+            </form>
+            <p class="modal-hint auth-hint">После входа вам станут доступны корзина, избранное и история заказов</p>
+        </div>
+    </div>
+</div>
+    <div class="modal cart-modal" id="cartModal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Моя корзина</h3>
+                <button class="modal-close" id="closeCartBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items-list" id="cartItemsList"></div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Товаров:</span>
+                        <span id="cartTotalItems">0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Сумма заказа:</span>
+                        <span id="cartSubtotal">0 ₽</span>
+                    </div>
+                    <div class="summary-row delivery-row">
+                        <span>Доставка:</span>
+                        <span id="cartDelivery">0 ₽</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Итого:</span>
+                        <span id="cartTotal">0 ₽</span>
+                    </div>
+                    <div class="delivery-selector">
+                        <label for="cartDeliveryZoneSelect">Район доставки:</label>
+                        <select id="cartDeliveryZoneSelect" class="delivery-select">
+                            <option value="center">Центр — 200 ₽</option>
+                            <option value="west">Западный микрорайон — 300 ₽</option>
+                            <option value="east">Восточный микрорайон — 300 ₽</option>
+                            <option value="north">Северный микрорайон — 300 ₽</option>
+                            <option value="south">Южный микрорайон — 300 ₽</option>
+                            <option value="urban">Городок нефтяников — 350 ₽</option>
+                            <option value="dzhalil">пгт Джалиль — 500 ₽</option>
+                        </select>
+                    </div>
+                    <div class="free-delivery-note" id="freeDeliveryNote">
+                        <i class="fas fa-truck"></i> Добавьте товаров на <span id="needMore">0</span> ₽ для бесплатной доставки
+                    </div>
+                    <button class="checkout-btn" id="checkoutBtn">Оформить заказ</button>
+                    <button class="continue-shopping-btn" id="continueShoppingBtn">Продолжить покупки</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="quickOrderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Быстрый заказ</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="quickOrderForm">
+                    <div class="form-group">
+                        <input type="text" id="quickName" placeholder="Ваше имя" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="quickPhone" placeholder="Телефон" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="quickAddress" placeholder="Адрес доставки" />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Заказать</button>
+                </form>
+                <p class="modal-hint">Мы свяжемся с вами для подтверждения заказа</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-notification" id="cartNotification">
+        <div class="cart-notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span>Товар добавлен в корзину</span>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

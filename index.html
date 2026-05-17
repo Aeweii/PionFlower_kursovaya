@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>PionFlower — цветочная студия в Альметьевске</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <a href="index.html"><img src="assets/media/img/logo.png" alt="PionFlower" class="logo-img"></a>
+                </div>
+                <div class="logo-text">PionFlower<span>студия цветов</span></div>
+            </div>
+
+            <nav class="nav" id="navMenu">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="delivery.html" class="nav-link">Доставка</a>
+                <a href="contacts.html" class="nav-link">Контакты</a>
+            </nav>
+
+            <button class="burger-menu" id="burgerMenu" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="cart-icon-header" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count-badge" id="cartCount">0</span>
+                </div>
+                <div class="profile-section" id="profileSection"></div>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html" class="mobile-link active">Главная</a>
+            <a href="catalog.html" class="mobile-link">Каталог</a>
+            <a href="delivery.html" class="mobile-link">Доставка</a>
+            <a href="contacts.html" class="mobile-link">Контакты</a>
+            <a href="profile.html" class="mobile-link">Личный кабинет</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- ГЛАВНЫЙ ЭКРАН С ВИДЕО -->
+        <section class="hero">
+            <div class="hero-bg">
+                <video class="hero-video" autoplay muted loop playsinline>
+                    <source src="./assets/media/video/fon.mp4" type="video/mp4" />
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Цветы и авторские букеты <br />в Альметьевске</h1>
+                    <p>Свежие цветы, индивидуальный подход и доставка от 1 часа</p>
+                    <div class="hero-buttons">
+                        <a href="catalog.html" class="btn btn-primary">Смотреть каталог</a>
+                        <a href="#" class="btn btn-outline" id="callbackBtn">Заказать звонок</a>
+                    </div>
+                    <div class="hero-features">
+                        <span><i class="fas fa-truck"></i> Бесплатно от 3000₽</span>
+                        <span><i class="fas fa-clock"></i> 1-2 часа доставка</span>
+                        <span><i class="fas fa-credit-card"></i> Оплата онлайн</span>
+                        <span><i class="fas fa-gift"></i> Открытка в подарок</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПОПУЛЯРНЫЕ БУКЕТЫ (карточки скрыты, будут показаны через JS) -->
+        <section class="popular">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Популярные букеты</h2>
+                    <p>То, что выбирают чаще всего</p>
+                </div>
+                <div class="catalog-grid" id="popularGrid"></div>
+                <div class="text-center">
+                    <a href="catalog.html" class="btn btn-outline">Смотреть весь каталог →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Скрытые карточки товаров для главной страницы (будут склонированы) -->
+        <div style="display: none;" id="hiddenProducts">
+            <!-- Пион "Нежность пионов" -->
+            <div class="product-card" data-id="1" data-name="Нежность пионов" data-price="2900" data-category="author" data-image="./assets/media/img/pion.jpeg" data-badge="Хит продаж" data-description="Изысканный букет из нежных пионов" data-composition='["Розовые пионы","Гипсофила"]'>
+                <div class="card-image">
+                    <img src="./assets/media/img/pion.jpeg" alt="Нежность пионов" onerror="this.src='assets/media/img/default.jpg'">
+                    <span class="card-badge">Хит продаж</span>
+                </div>
+                <div class="card-title">Нежность пионов</div>
+                <div class="card-price">2 900 ₽</div>
+                <div class="card-actions">
+                    <button class="favorite-btn" data-id="1"><i class="fas fa-heart"></i></button>
+                    <button class="btn-primary add-to-cart" data-id="1">В корзину</button>
+                </div>
+            </div>
+
+            <!-- Мятный эвкалипт -->
+            <div class="product-card" data-id="2" data-name="Мятный эвкалипт" data-price="2400" data-category="author" data-image="./assets/media/img/mint.jpg" data-badge="" data-description="Стильная композиция с эвкалиптом" data-composition='["Эвкалипт","Белые розы"]'>
+                <div class="card-image">
+                    <img src="./assets/media/img/mint.jpg" alt="Мятный эвкалипт" onerror="this.src='assets/media/img/default.jpg'">
+                </div>
+                <div class="card-title">Мятный эвкалипт</div>
+                <div class="card-price">2 400 ₽</div>
+                <div class="card-actions">
+                    <button class="favorite-btn" data-id="2"><i class="fas fa-heart"></i></button>
+                    <button class="btn-primary add-to-cart" data-id="2">В корзину</button>
+                </div>
+            </div>
+
+            <!-- Розовое облако -->
+            <div class="product-card" data-id="3" data-name="Розовое облако" data-price="3200" data-category="wedding" data-image="./assets/media/img/pink.jpg" data-badge="Свадебный" data-description="Нежный романтичный букет" data-composition='["Розовые розы","Гипсофила"]'>
+                <div class="card-image">
+                    <img src="./assets/media/img/pink.jpg" alt="Розовое облако" onerror="this.src='assets/media/img/default.jpg'">
+                    <span class="card-badge">Свадебный</span>
+                </div>
+                <div class="card-title">Розовое облако</div>
+                <div class="card-price">3 200 ₽</div>
+                <div class="card-actions">
+                    <button class="favorite-btn" data-id="3"><i class="fas fa-heart"></i></button>
+                    <button class="btn-primary add-to-cart" data-id="3">В корзину</button>
+                </div>
+            </div>
+
+            <!-- Корпоративный стиль -->
+            <div class="product-card" data-id="4" data-name="Корпоративный стиль" data-price="3500" data-category="corporate" data-image="./assets/media/img/business.jpg" data-badge="Популярный" data-description="Элегантный букет для офиса" data-composition='["Розы","Гортензии"]'>
+                <div class="card-image">
+                    <img src="./assets/media/img/business.jpg" alt="Корпоративный стиль" onerror="this.src='assets/media/img/default.jpg'">
+                    <span class="card-badge">Популярный</span>
+                </div>
+                <div class="card-title">Корпоративный стиль</div>
+                <div class="card-price">3 500 ₽</div>
+                <div class="card-actions">
+                    <button class="favorite-btn" data-id="4"><i class="fas fa-heart"></i></button>
+                    <button class="btn-primary add-to-cart" data-id="4">В корзину</button>
+                </div>
+            </div>
+
+            <!-- Свадебная нежность -->
+            <div class="product-card" data-id="5" data-name="Свадебная нежность" data-price="3800" data-category="wedding" data-image="./assets/media/img/wedding.jpg" data-badge="Свадебный" data-description="Букет невесты" data-composition='["Пионовидные розы","Эустомы"]'>
+                <div class="card-image">
+                    <img src="./assets/media/img/wedding.jpg" alt="Свадебная нежность" onerror="this.src='assets/media/img/default.jpg'">
+                    <span class="card-badge">Свадебный</span>
+                </div>
+                <div class="card-title">Свадебная нежность</div>
+                <div class="card-price">3 800 ₽</div>
+                <div class="card-actions">
+                    <button class="favorite-btn" data-id="5"><i class="fas fa-heart"></i></button>
+                    <button class="btn-primary add-to-cart" data-id="5">В корзину</button>
+                </div>
+            </div>
+
+            <!-- Алые розы -->
+            <div class="product-card" data-id="6" data-name="Алые розы" data-price="4100" data-category="mono" data-image="./assets/media/img/red.jpg" data-badge="Премиум" data-description="15 роз премиум-класса" data-composition='["Алые розы"]'>
+                <div class="card-image">
+                    <img src="./assets/media/img/red.jpg" alt="Алые розы" onerror="this.src='assets/media/img/default.jpg'">
+                    <span class="card-badge">Премиум</span>
+                </div>
+                <div class="card-title">Алые розы</div>
+                <div class="card-price">4 100 ₽</div>
+                <div class="card-actions">
+                    <button class="favorite-btn" data-id="6"><i class="fas fa-heart"></i></button>
+                    <button class="btn-primary add-to-cart" data-id="6">В корзину</button>
+                </div>
+            </div>
+
+            <!-- Полевые цветы -->
+            <div class="product-card" data-id="7" data-name="Полевые цветы" data-price="1900" data-category="author" data-image="./assets/media/img/field.jpg" data-badge="" data-description="Букет из полевых цветов" data-composition='["Ромашки","Васильки"]'>
+                <div class="card-image">
+                    <img src="./assets/media/img/field.jpg" alt="Полевые цветы" onerror="this.src='assets/media/img/default.jpg'">
+                </div>
+                <div class="card-title">Полевые цветы</div>
+                <div class="card-price">1 900 ₽</div>
+                <div class="card-actions">
+                    <button class="favorite-btn" data-id="7"><i class="fas fa-heart"></i></button>
+                    <button class="btn-primary add-to-cart" data-id="7">В корзину</button>
+                </div>
+            </div>
+
+            <!-- Тюльпаны -->
+            <div class="product-card" data-id="8" data-name="Тюльпаны" data-price="2100" data-category="mono" data-image="./assets/media/img/tulips.jpg" data-badge="Сезон" data-description="25 тюльпанов" data-composition='["Тюльпаны"]'>
+                <div class="card-image">
+                    <img src="./assets/media/img/tulips.jpg" alt="Тюльпаны" onerror="this.src='assets/media/img/default.jpg'">
+                    <span class="card-badge">Сезон</span>
+                </div>
+                <div class="card-title">Тюльпаны</div>
+                <div class="card-price">2 100 ₽</div>
+                <div class="card-actions">
+                    <button class="favorite-btn" data-id="8"><i class="fas fa-heart"></i></button>
+                    <button class="btn-primary add-to-cart" data-id="8">В корзину</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- СЛАЙДЕР КОМАНДЫ -->
+        <section class="team">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Наша команда</h2>
+                    <p>Талантливые флористы, создающие цветочные шедевры</p>
+                </div>
+
+                <div class="team-slider-container">
+                    <button class="slider-btn prev" id="teamPrevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="team-slider">
+                        <div class="team-slider-track" id="teamSliderTrack">
+                            <div class="team-slide">
+                                <div class="team-card">
+                                    <div class="team-photo">
+                                        <img src="./assets/media/img/women1.webp" alt="Анна">
+                                    </div>
+                                    <h3>Анна Ковалёва</h3>
+                                    <p>Главный флорист</p>
+                                    <div class="team-social">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-vk"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-slide">
+                                <div class="team-card">
+                                    <div class="team-photo">
+                                        <img src="./assets/media/img/women2.jpg" alt="Елена">
+                                    </div>
+                                    <h3>Елена Смирнова</h3>
+                                    <p>Флорист-дизайнер</p>
+                                    <div class="team-social">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-vk"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-slide">
+                                <div class="team-card">
+                                    <div class="team-photo">
+                                        <img src="./assets/media/img/men.jpeg" alt="Дмитрий">
+                                    </div>
+                                    <h3>Дмитрий Орлов</h3>
+                                    <p>Менеджер по доставке</p>
+                                    <div class="team-social">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-vk"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-slide">
+                                <div class="team-card">
+                                    <div class="team-photo">
+                                        <img src="./assets/media/img/women3.jpg" alt="Ирина">
+                                    </div>
+                                    <h3>Ирина Петрова</h3>
+                                    <p>Флорист-декоратор</p>
+                                    <div class="team-social">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-vk"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-slide">
+                                <div class="team-card">
+                                    <div class="team-photo">
+                                        <img src="./assets/media/img/women4.webp" alt="Мария">
+                                    </div>
+                                    <h3>Мария Соколова</h3>
+                                    <p>Старший флорист</p>
+                                    <div class="team-social">
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="#"><i class="fab fa-vk"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="slider-btn next" id="teamNextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="slider-dots" id="teamSliderDots"></div>
+            </div>
+        </section>
+
+        <!-- ФОРМА СВЯЗИ -->
+        <section class="container">
+            <div class="contact-chat-grid">
+                <div>
+                    <h2 style="margin-top: 0">Связаться с нами</h2>
+                    <form id="contactForm">
+                        <input type="text" id="contactName" placeholder="Ваше имя" style="margin-bottom: 16px" />
+                        <input type="email" id="contactEmail" placeholder="Электронная почта" style="margin-bottom: 16px" />
+                        <textarea id="contactMessage" rows="3" placeholder="Ваш вопрос или заявка"></textarea>
+                        <button type="submit" class="btn" style="margin-top: 16px">Отправить</button>
+                    </form>
+                    <p style="margin-top: 20px">Или напишите: <a href="mailto:PionFlower@gmail.com">PionFlower@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ГЕО-КАРТА -->
+        <section class="container">
+            <h2>Как нас найти</h2>
+            <div class="map-wrapper">
+                <div class="yandex-map">
+                    <iframe src="https://yandex.ru/map-widget/v1/?ll=52.296782%2C54.899183&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NTg3MTQ0ORJ_0KDQvtGB0YHQuNGPLCDQoNC10YHQv9GD0LHQu9C40LrQsCDQotCw0YLQsNGA0YHRgtCw0L0gKNCi0LDRgtCw0YDRgdGC0LDQvSksINCQ0LvRjNC80LXRgtGM0LXQstGB0LosINGD0LvQuNGG0LAg0JvQtdC90LjQvdCwLCA0MyIKDektUUIVp5lbQg%2C%2C&z=16.61"></iframe>
+                </div>
+                <div class="map-info">
+                    <p><strong>ул. Ленина, д. 43, Альметьевск</strong></p>
+                    <p>Пункт самовывоза и студия</p>
+                    <div class="map-buttons">
+                        <a href="https://yandex.ru/maps/?rtext=~54.899183,52.296782&rtt=mt" target="_blank" class="btn-map">Построить маршрут</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- МОДУЛЬ ОТЗЫВОВ -->
+        <section class="container reviews-section">
+            <h2>Отзывы наших клиентов</h2>
+            <div class="reviews-carousel" id="reviewsCarousel">
+                <div class="review-card">
+                    <img src="./assets/media/img/women4.webp" alt="Анна" class="review-photo" />
+                    <div class="review-name">Анна</div>
+                    <div class="review-info">Альметьевск · 2 дня назад</div>
+                    <div class="review-text">«Очень нежные букеты, доставили вовремя. Спасибо! Пионы просто сказочно невероятные.»</div>
+                    <div class="review-rating">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <img src="./assets/media/img/women5.jpeg" alt="Елена" class="review-photo" />
+                    <div class="review-name">Елена</div>
+                    <div class="review-info">Альметьевск · 1 неделя назад</div>
+                    <div class="review-text">«Заказывали оформление юбилея, всё в пастельных тонах — сказка! Цветы свежайшие.»</div>
+                    <div class="review-rating">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <img src="./assets/media/img/men2.jpeg" alt="Дмитрий" class="review-photo" />
+                    <div class="review-name">Дмитрий</div>
+                    <div class="review-info">Альметьевск · 3 дня назад</div>
+                    <div class="review-text">«Удобно, что можно забрать самому. Студия на Ленина очень уютная, персонал приветливый.»</div>
+                    <div class="review-rating">★★★★☆</div>
+                </div>
+                <div class="review-card">
+                    <img src="./assets/media/img/women6.jpeg" alt="Ирина" class="review-photo" />
+                    <div class="review-name">Ирина</div>
+                    <div class="review-info">Альметьевск · вчера</div>
+                    <div class="review-text">«Брали букет на свидание, подруга в восторге! Розы невероятно пахнут и стоят уже неделю.»</div>
+                    <div class="review-rating">★★★★★</div>
+                </div>
+                <div class="review-card">
+                    <img src="./assets/media/img/men.jpeg" alt="Михаил" class="review-photo" />
+                    <div class="review-name">Михаил</div>
+                    <div class="review-info">Альметьевск · 5 дней назад</div>
+                    <div class="review-text">«Лучшая цветочная в Альметьевске, советую. Быстрая доставка, вежливый курьер.»</div>
+                    <div class="review-rating">★★★★★</div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn">←</button>
+                <button class="carousel-btn" id="nextBtn">→</button>
+            </div>
+        </section>
+
+        <div class="container" style="margin: 40px auto">
+            <p style="text-align: center">Мы в соцсетях: <a href="https://m.vk.com/PionFlowerStudio" target="_blank" style="text-decoration: underline; color: #b35f7a">ВКонтакте</a> · Доставка по Альметьевску · Онлайн-оплата</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon">
+                    <img src="./assets/media/img/logo.png" alt="PionFlower" class="logo-img" />
+                </div>
+                <div class="logo-text">PionFlower</div>
+            </div>
+            <div class="footer-copyright">© 2026, цветочная студия «PionFlower»</div>
+            <div class="footer-contacts">
+                <a href="tel:+78553123456">+7 (8553) 12-34-56</a>
+                <a href="mailto:PionFlower@gmail.com">PionFlower@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНЫЕ ОКНА -->
+<div class="modal auth-modal" id="authModal">
+    <div class="modal-content auth-modal-content">
+        <div class="modal-header">
+            <h3>Вход в аккаунт</h3>
+            <button class="modal-close auth-modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-auth-tab="login">Вход</button>
+                <button class="auth-tab" data-auth-tab="register">Регистрация</button>
+            </div>
+
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <input type="tel" id="loginPhone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Пароль" required>
+                </div>
+                <button type="submit" class="btn-primary w-100 auth-submit-btn">Войти</button>
+            </form>
+
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <input type="text" id="regName" placeholder="Ваше имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="regPhone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="regEmail" placeholder="Email (необязательно)">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="regPassword" placeholder="Пароль" required>
+                </div>
+                <button type="submit" class="btn-primary w-100 auth-submit-btn">Зарегистрироваться</button>
+            </form>
+            <p class="modal-hint auth-hint">После входа вам станут доступны корзина, избранное и история заказов</p>
+        </div>
+    </div>
+</div>
+    <div class="modal cart-modal" id="cartModal">
+        <div class="modal-content cart-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Моя корзина</h3>
+                <button class="modal-close" id="closeCartBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-items-list" id="cartItemsList"></div>
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Товаров:</span>
+                        <span id="cartTotalItems">0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Сумма заказа:</span>
+                        <span id="cartSubtotal">0 ₽</span>
+                    </div>
+                    <div class="summary-row delivery-row">
+                        <span>Доставка:</span>
+                        <span id="cartDelivery">0 ₽</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Итого:</span>
+                        <span id="cartTotal">0 ₽</span>
+                    </div>
+                    <div class="delivery-selector">
+                        <label for="cartDeliveryZoneSelect">Район доставки:</label>
+                        <select id="cartDeliveryZoneSelect" class="delivery-select">
+                            <option value="center">Центр — 200 ₽</option>
+                            <option value="west">Западный микрорайон — 300 ₽</option>
+                            <option value="east">Восточный микрорайон — 300 ₽</option>
+                            <option value="north">Северный микрорайон — 300 ₽</option>
+                            <option value="south">Южный микрорайон — 300 ₽</option>
+                            <option value="urban">Городок нефтяников — 350 ₽</option>
+                            <option value="dzhalil">пгт Джалиль — 500 ₽</option>
+                        </select>
+                    </div>
+                    <div class="free-delivery-note" id="freeDeliveryNote">
+                        <i class="fas fa-truck"></i> Добавьте товаров на <span id="needMore">0</span> ₽ для бесплатной доставки
+                    </div>
+                    <button class="checkout-btn" id="checkoutBtn">Оформить заказ</button>
+                    <button class="continue-shopping-btn" id="continueShoppingBtn">Продолжить покупки</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="quickOrderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Быстрый заказ</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="quickOrderForm">
+                    <div class="form-group">
+                        <input type="text" id="quickName" placeholder="Ваше имя" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="quickPhone" placeholder="Телефон" required />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="quickAddress" placeholder="Адрес доставки" />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Заказать</button>
+                </form>
+                <p class="modal-hint">Мы свяжемся с вами для подтверждения заказа</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-notification" id="cartNotification">
+        <div class="cart-notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span>Товар добавлен в корзину</span>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
