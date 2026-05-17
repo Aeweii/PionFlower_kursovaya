@@ -322,14 +322,8 @@ function addToCart(product, btnElement) {
         setTimeout(() => { btnElement.innerHTML = originalText; }, 1500);
     }
 }
-// Показ анимации уведомления о добавлении в корзину
-function showCartNotification() {
-    const notification = document.getElementById("cartNotification");
-    if (notification) {
-        notification.classList.add("show");
-        setTimeout(() => notification.classList.remove("show"), 2000);
-    }
-}
+
+
 // Открытие модального окна корзины
 function openCartModal() {
     const modal = document.getElementById("cartModal");
